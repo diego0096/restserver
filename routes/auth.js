@@ -11,9 +11,9 @@ router.post('/login', [
     validarCampos
 ], login);
 
-router.post('/google', [
-    check('id_token', 'id_token es necesario').not().isEmpty(),
+router.post('/google',[
+    check('id_token', 'El id_token es necesario').not().isEmpty(),
     validarCampos
-], googleSignIn);
+], googleSignIn );
 
 module.exports = router;
