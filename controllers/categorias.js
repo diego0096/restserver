@@ -65,15 +65,15 @@ const actualizarCategoria = async(req = request, res = response) => {
     data.nombre = data.nombre.toUpperCase();
     data.usuario = req.usuario._id;
 
-    const categoriaBorrada = await Categoria.findByIdAndUpdate(id, data, {new: true})
+    const categoriaActualizada = await Categoria.findByIdAndUpdate(id, data, {new: true})
 
-    res.json(categoriaBorrada)
+    res.json(categoriaActualizada)
 }
 
 // borrarCategoria - estado: false
 const borrarCategoria = async(req = request, res = response) => {
     const {id} = req.params;
-    const categoriaBorrada = await Categoria.findByIdAndUpdate(id, {estado: false});
+    const categoriaBorrada = await Categoria.findByIdAndUpdate(id, {estado: false}, {new: true});
 
     res.json({
         categoriaBorrada
