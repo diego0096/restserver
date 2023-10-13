@@ -38,7 +38,7 @@ router.put('/:id', [
 
 // Borrar una categoria - Admin 
 router.delete('/:id', [
-    validarCampos,
+    validarJWT,
     esAdminRole,
     check('id', 'No es un id de Mongo valido').isMongoId(),
     check('id').custom(existeCategoriaPorid),
