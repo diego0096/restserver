@@ -1,6 +1,5 @@
 const { request, response, json } = require("express");
 const { Usuario, Categoria, Producto } = require("../models");
-const usuario = require("../models/usuario");
 const { ObjectId } = require('mongoose').Types;
 
 const coleccionesPermitidas = [
@@ -97,7 +96,6 @@ const buscar = (req, res = response) => {
                 msg: 'Se le olvido hacer esta búsquda'
             })
     }
-
 }
 
 module.exports = {
