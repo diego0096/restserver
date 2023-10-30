@@ -2,7 +2,6 @@ const { response, request } = require('express');
 const bcryptjs = require('bcryptjs');
 
 const Usuario = require('../models/usuario');
-const usuario = require('../models/usuario');
 
 const usuariosGet = async (req = request, res = response) => {
     // const {q, nombre = 'No name', apikey, page = 1, limit} = req.query;
@@ -44,9 +43,6 @@ const usuariosPut = async (req, res = response) => {
 const usuariosPost = async (req, res = response) => {
     const { nombre, correo, password, rol } = req.body;
     const usuario = new Usuario({ nombre, correo, password, rol });
-
-    // Verificar si correo existe
-
 
     // Encriptar contraseña
     const salt = bcryptjs.genSaltSync(10);
