@@ -12,8 +12,8 @@ class Server {
         this.buscarPath = '/api/buscar';
         this.categoriasPath = '/api/categorias';
         this.productosPath = '/api/productos';
-        this.usuariosPath = '/api/usuarios';
         this.uploadsPath = '/api/uploads';
+        this.usuariosPath = '/api/usuarios';
 
         // Conectar base de datos
         this.conectarDB();
@@ -52,8 +52,8 @@ class Server {
         this.app.use(this.buscarPath, require('../routes/buscar'));
         this.app.use(this.categoriasPath, require('../routes/categorias'));
         this.app.use(this.productosPath, require('../routes/productos'));
-        this.app.use(this.usuariosPath, require('../routes/usuarios'));
         this.app.use(this.uploadsPath, require('../routes/uploads'));
+        this.app.use(this.usuariosPath, require('../routes/usuarios'));
     }
 
     listen() {
