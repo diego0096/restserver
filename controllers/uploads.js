@@ -15,8 +15,6 @@ const cargarArchivo = async(req = request, res = response) => {
     } catch (msg) {
         res.status(400).json({msg})
     }
-
-
 }
 
 module.exports = {
