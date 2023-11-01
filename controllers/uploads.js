@@ -17,6 +17,13 @@ const cargarArchivo = async(req = request, res = response) => {
     }
 }
 
+const actualizarimagen = async(req, res = response) => {
+    const {id, coleccion} = req.params;
+    
+    res.json({id, coleccion})
+}
+
 module.exports = {
     cargarArchivo,
+    actualizarimagen,
 }
