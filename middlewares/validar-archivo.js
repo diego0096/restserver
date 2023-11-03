@@ -6,7 +6,7 @@ const validarArchivoSubir = (req, res = response, next) => {
         return res.status(400).json({ msg: 'No hay archivos que subir - validarArchivoSubir' });
     }
 
-    // next();
+    next();
 }
 
 module.exports = {
