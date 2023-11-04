@@ -3,3 +3,6 @@ node_modules
 .env
 
 index copy.html
+
+uploads/productos
+uploads/usuarios
