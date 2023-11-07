@@ -39,6 +39,4 @@ router.delete('/:id', [
     validarCampos
 ], borrarProducto)
 
-
-
 module.exports = router;
