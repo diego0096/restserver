@@ -1,4 +1,4 @@
-const {Schema, model} = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const CategoriaSchema = Schema({
     nombre: {
@@ -18,8 +18,8 @@ const CategoriaSchema = Schema({
     }
 });
 
-CategoriaSchema.methods.toJSON = function() {
-    const {__v, estado, ...data} = this.toObject();
+CategoriaSchema.methods.toJSON = function () {
+    const { __v, estado, ...data } = this.toObject();
     return data;
 }
 
