@@ -1,4 +1,4 @@
-const { request, response, json } = require("express");
+const { response } = require("express");
 const { Usuario, Categoria, Producto } = require("../models");
 const { ObjectId } = require('mongoose').Types;
 
@@ -22,8 +22,8 @@ const buscarUsuarios = async (termino = '', res = response) => {
     const regex = new RegExp(termino, 'i');
 
     const usuarios = await Usuario.find({
-        $or: [{nombre: regex}, {correo: regex}],
-        $and: [{estado: true}]
+        $or: [{ nombre: regex }, { correo: regex }],
+        $and: [{ estado: true }]
     });
 
     res.json({
@@ -34,7 +34,7 @@ const buscarUsuarios = async (termino = '', res = response) => {
 const buscarCategorias = async (termino = '', res = response) => {
     const esMongoID = ObjectId.isValid(termino);
 
-    if(esMongoID) {
+    if (esMongoID) {
         const categoria = await Categoria.findById(termino);
         return res.json({
             results: (categoria) ? [categoria] : []
@@ -43,7 +43,7 @@ const buscarCategorias = async (termino = '', res = response) => {
 
     const regex = new RegExp(termino, 'i');
 
-    const categorias = await Categoria.find({nombre: regex}, {estado: true});
+    const categorias = await Categoria.find({ nombre: regex }, { estado: true });
 
     res.json({
         results: categorias
@@ -53,17 +53,17 @@ const buscarCategorias = async (termino = '', res = response) => {
 const buscarProductos = async (termino = '', res = response) => {
     const esMongoID = ObjectId.isValid(termino);
 
-    if(esMongoID) {
+    if (esMongoID) {
         const producto = await Producto.findById(termino);
         return res.json({
             results: (producto) ? [producto] : []
         });
-    } 
+    }
 
     const regex = new RegExp(termino, 'i')
 
-    const productos = await Producto.find({nombre: regex}, {estado: true})
-            .populate('categoria', 'nombre')
+    const productos = await Producto.find({ nombre: regex }, { estado: true })
+        .populate('categoria', 'nombre')
 
     res.json({
         results: productos
