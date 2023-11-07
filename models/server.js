@@ -35,18 +35,18 @@ class Server {
 
         // Lectura y parseo del body
         this.app.use(express.json());
-        
+
         // Directorio  publico
         this.app.use(express.static('public'));
 
         // Fileupload - Carga de archivos
         this.app.use(fileUpload({
-            useTempFiles : true,
-            tempFileDir : '/tmp/',
+            useTempFiles: true,
+            tempFileDir: '/tmp/',
             createParentPath: true // Crea carpeta especificada en el path
         }));
     }
-    
+
     routes() {
         this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.buscarPath, require('../routes/buscar'));
